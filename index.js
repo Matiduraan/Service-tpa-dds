@@ -1,5 +1,8 @@
 import express from "express";
-import { getUserConfidence } from "./controllers/confidenceController.js";
+import {
+  getComunityConfidence,
+  getUserConfidence,
+} from "./controllers/confidenceController.js";
 const app = express();
 const port = 3000;
 
@@ -27,17 +30,24 @@ app.get("/", (req, res) => {
 
 app.post("/user_confidence", (req, res) => {
   try {
-    // console.log(req.body);
     const { id_usuario, incidentes, grado_confianza } = req.body;
     const newConfidenceLevel = getUserConfidence(
       grado_confianza,
       incidentes,
       id_usuario
     );
-    console.log(newConfidenceLevel);
     res.status(200).send({ newConfidenceLevel });
   } catch (error) {
-    console.error(error);
+    res.status(500).send(error);
+  }
+});
+
+app.post("/community_confidence", (req, res) => {
+  try {
+    const { miembros } = req.body;
+    const confidence = getComunityConfidence(miembros);
+    res.status(200).send({ confidence });
+  } catch (error) {
     res.status(500).send(error);
   }
 });
