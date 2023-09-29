@@ -1,0 +1,42 @@
+return {
+  id_usuario: "abcd5678",
+  grado_confianza: 2.5,
+  incidentes: [
+    {
+      nombre_servicio: "Limpieza",
+      comunidad: "22",
+      id_servicio: 56789,
+      fecha_apertura: "2023-09-28T12:30:45Z",
+      fecha_cierre: "2023-09-28T12:32:00Z",
+      usuario_creador: "abcd9012",
+      usuario_cierre: "efgh3456",
+    },
+    {
+      nombre_servicio: "Jardinería",
+      comunidad: "33",
+      id_servicio: 98765,
+      fecha_apertura: "2023-09-28T12:35:00Z",
+      fecha_cierre: "2023-09-28T12:38:30Z",
+      usuario_creador: "ijkl7890",
+      usuario_cierre: "mnop0123",
+    },
+    {
+      nombre_servicio: "Jardinería",
+      comunidad: "33",
+      id_servicio: 98766,
+      fecha_apertura: "2023-09-28T12:39:00Z",
+      fecha_cierre: "2023-09-28T14:00:30Z",
+      usuario_creador: "qrst4567",
+      usuario_cierre: "efgh3456",
+    },
+    {
+      nombre_servicio: "Electricidad",
+      comunidad: "44",
+      id_servicio: 23456,
+      fecha_apertura: "2023-09-29T15:00:00Z",
+      fecha_cierre: "2023-09-29T15:45:30Z",
+      usuario_creador: "uvwx9012",
+      usuario_cierre: "abcd5678",
+    },
+  ],
+};
