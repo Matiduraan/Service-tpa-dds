@@ -18,7 +18,7 @@ export function getUserConfidence(
       );
       if (
         diffInMinutes(apertura, cierre) < 3 &&
-        incident.usuario_cierre === user_id
+        incident.usuario_creador === user_id
       ) {
         return acc - 0.2;
       } else if (
@@ -26,17 +26,14 @@ export function getUserConfidence(
         similarIncidents.length > 0
       ) {
         return acc - 0.2;
-      } else {
+      } else if(incident.usuario_cierre === user_id || incident.usuario_creador === user_id) {
+        return acc + 0.5;
+      } else   {
         return acc;
       }
     }, currentConfidenceLevel);
-    if (
-      newConfidenceLevel === currentConfidenceLevel &&
-      incidents.some((inc) => inc.usuario_cierre === user_id)
-    ) {
-      newConfidenceLevel = newConfidenceLevel + 0.5;
-    }
   }
+  console.log(newConfidenceLevel);
   return newConfidenceLevel;
 }
 
@@ -48,7 +45,7 @@ export function getComunityConfidence(members) {
   confidence /= members.length;
 
   const penalizedMembers = members.filter(
-    (member) => member.confidence >= 2 && member.confidence <= 3
+    (member) => member.grado_confianza >= 2 && member.grado_confianza <= 3
   ).length;
   confidence -= 0.2 * penalizedMembers;
 
