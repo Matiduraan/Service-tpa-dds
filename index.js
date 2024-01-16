@@ -36,7 +36,7 @@ app.post("/user_confidence", (req, res) => {
       incidentes,
       id_usuario
     );
-    res.status(200).send({ newConfidenceLevel });
+    res.status(200).send({ new_confidence_level: newConfidenceLevel });
   } catch (error) {
     res.status(500).send(error);
   }
