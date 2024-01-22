@@ -31,12 +31,12 @@ app.get("/", (req, res) => {
 app.post("/user_confidence", (req, res) => {
   try {
     const { id_usuario, incidentes, grado_confianza } = req.body;
-    const newConfidenceLevel = getUserConfidence(
+    const new_confidence_level = getUserConfidence(
       grado_confianza,
       incidentes,
       id_usuario
     );
-    res.status(200).send({ newConfidenceLevel });
+    res.status(200).send({ new_confidence_level });
   } catch (error) {
     res.status(500).send(error);
   }
